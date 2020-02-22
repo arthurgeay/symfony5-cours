@@ -6,7 +6,7 @@
             <img class="mx-auto d-block" width="300" src="https://symfony.com/logos/symfony_black_03.png" />
             <hr>
             <h1>{{ title }}</h1>
-            <span><img class="rounded-circle" width="35" height="35" src="https://randomuser.me/api/portraits/women/48.jpg" /> Arthur Geay - Publié il y a 3 heures - {{ comments|length }} commentaires</span>
+            <span><img class="rounded-circle" width="35" height="35" src="https://randomuser.me/api/portraits/women/48.jpg" /> Arthur Geay - Publié il y a 3 heures - {{ comments|length }} commentaires | <span class="like-counter">5</span> <a href="#" class="like-article"><i class="far fa-heart" style="color: red;"></i></a></span>
         </div>
         <div>
             <p>
@@ -31,4 +31,9 @@
         </ul>
     </section>
 
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('news_show.js') }}"></script>
 {% endblock %}
