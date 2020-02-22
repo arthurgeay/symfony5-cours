@@ -16,4 +16,12 @@ class ArticleController
     {
         return new Response("La page d'accueil");
     }
+
+    /**
+     * @Route("/news/{slug}")
+     */
+    public function show($slug = 'yeah')
+    {
+        return new Response(sprintf("Voici l'article : %s", $slug));
+    }
 }
