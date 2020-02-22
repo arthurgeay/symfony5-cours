@@ -6,7 +6,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/symfony5-cours.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/symfony5-cours.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/ArticleController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ArticleController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -134,6 +133,7 @@
       <path value="$PROJECT_DIR$/vendor/monolog/monolog" />
       <path value="$PROJECT_DIR$/vendor/twig/extra-bundle" />
       <path value="$PROJECT_DIR$/vendor/symfony/apache-pack" />
+      <path value="$PROJECT_DIR$/vendor/sensiolabs/security-checker" />
     </include_path>
   </component>
   <component name="ProjectId" id="1Y7snlGonCGZHaaMI2wJ2mJFnUJ" />
@@ -166,7 +166,7 @@
       <updated>1582305135064</updated>
       <workItem from="1582305136228" duration="1001000" />
       <workItem from="1582306478050" duration="268000" />
-      <workItem from="1582340555078" duration="600000" />
+      <workItem from="1582340555078" duration="1028000" />
     </task>
     <servers />
   </component>
