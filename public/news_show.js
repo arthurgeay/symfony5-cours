@@ -1,4 +1,5 @@
 const articleLike = document.querySelector('.like-article');
+const linkApi = articleLike.href;
 const heart = articleLike.children[0];
 const likeCounter = document.querySelector('.like-counter');
 
@@ -7,6 +8,9 @@ articleLike.addEventListener('click', (event) => {
     heart.classList.toggle('far');
     heart.classList.toggle('fas');
 
-    likeCounter.innerHTML = "0";
+    fetch(linkApi, { method: 'post' })
+        .then(data => data.json())
+        .then(result => likeCounter.innerHTML = result.hearts)
+
 
 });
