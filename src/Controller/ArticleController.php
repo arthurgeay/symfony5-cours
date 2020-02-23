@@ -4,9 +4,8 @@
 namespace App\Controller;
 
 
-use Michelf\MarkdownInterface;
+use App\Service\MarkdownHelper;
 use Psr\Log\LoggerInterface;
-use Symfony\Component\Cache\Adapter\AdapterInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -25,9 +24,8 @@ class ArticleController extends AbstractController
     /**
      * @Route("/news/{slug}", name="news")
      */
-    public function show($slug = 'yeah', MarkdownInterface $markdown, AdapterInterface $cache)
+    public function show($slug = 'yeah', MarkdownHelper $markdownHelper)
     {
-        dump($cache); die;
         $articleContent = <<<EOF
 Spicy **jalapeno bacon** ipsum dolor amet veniam shank in dolore. Ham hock nisi landjaeger cow,
 lorem proident [beef ribs](https://baconipsum.com/) aute enim veniam ut cillum pork chuck picanha. Dolore reprehenderit
@@ -46,12 +44,7 @@ fugiat.
 EOF;
         $comments = ["C'est incroyable", "Super article", "Nul"];
 
-        $item = $cache->getItem('markdown_'.md5($articleContent));
-        if(!$item->isHit()) {
-            $item->set($markdown->transform($articleContent));
-            $cache->save($item);
-        }
-        $articleContent = $item->get();
+        $articleContent = $markdownHelper->parse($articleContent);
         return $this->render('article/show.html.twig', [
             'slug' => $slug,
             'title' => ucwords(str_replace('-', ' ', $slug)),
