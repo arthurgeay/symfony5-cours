@@ -5,6 +5,7 @@ namespace App\Controller;
 
 
 use App\Service\MarkdownHelper;
+use Nexy\Slack\Client;
 use Psr\Log\LoggerInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
@@ -24,7 +25,7 @@ class ArticleController extends AbstractController
     /**
      * @Route("/news/{slug}", name="news")
      */
-    public function show($slug = 'yeah', MarkdownHelper $markdownHelper)
+    public function show($slug = 'yeah', MarkdownHelper $markdownHelper, Client $slack)
     {
         $articleContent = <<<EOF
 Spicy **jalapeno bacon** ipsum dolor amet veniam shank in dolore. Ham hock nisi landjaeger cow,
@@ -43,6 +44,15 @@ cow est ribeye adipisicing. Pig hamburger pork belly enim. Do porchetta minim ca
 fugiat.
 EOF;
         $comments = ["C'est incroyable", "Super article", "Nul"];
+
+        if($slug === 'yo') {
+            $message = $slack->createMessage()
+                ->to('#general')
+                ->from('John doe')
+                ->withIcon(':ghost:')
+                ->setText('Hello world');
+            $slack->sendMessage($message);
+        }
 
         $articleContent = $markdownHelper->parse($articleContent);
         return $this->render('article/show.html.twig', [
