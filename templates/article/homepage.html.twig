@@ -8,39 +8,20 @@
     <h1 class="text-center">Accueil</h1>
 
     <div class="row">
+        {% for article in articles %}
         <div class="col-md-4">
             <div class="card">
                 <img src="https://symfony.com/logos/symfony_black_03.png" class="card-img-top" alt="...">
                 <hr>
                 <div class="card-body">
-                    <h5 class="card-title">Mon article</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="{{ path('news', {'slug': 'test'}) }}" class="btn btn-primary">Go somewhere</a>
+                    <h5 class="card-title">{{ article.title }}</h5>
+                    <p>{{ article.publishedAt ? article.publishedAt|ago }}</p>
+                    <p class="card-text">{{ article.content|slice(0, 10) }}</p>
+                    <a href="{{ path('news', {'slug': article.slug }) }}" class="btn btn-primary">Go somewhere</a>
                 </div>
             </div>
         </div>
-        <div class="col-md-4">
-            <div class="card">
-                <img src="https://symfony.com/logos/symfony_black_03.png" class="card-img-top" alt="...">
-                <hr>
-                <div class="card-body">
-                    <h5 class="card-title">Mon article</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="{{ path('news', {'slug': 'test'}) }}" class="btn btn-primary">Go somewhere</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="card">
-                <img src="https://symfony.com/logos/symfony_black_03.png" class="card-img-top" alt="...">
-                <hr>
-                <div class="card-body">
-                    <h5 class="card-title">Mon article</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="{{ path('news', {'slug': 'test'}) }}" class="btn btn-primary">Go somewhere</a>
-                </div>
-            </div>
-        </div>
+        {% endfor %}
     </div>
 
 {% endblock %}
