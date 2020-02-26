@@ -3,21 +3,13 @@
 namespace App\Twig;
 
 use App\Service\MarkdownHelper;
+use Symfony\Contracts\Service\ServiceSubscriberInterface;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFilter;
 use Twig\TwigFunction;
 
 class AppExtension extends AbstractExtension
 {
-    /**
-     * @var MarkdownHelper
-     */
-    private $markdown;
-
-    public function __construct(MarkdownHelper $markdown) {
-
-        $this->markdown = $markdown;
-    }
 
     public function getFilters(): array
 {
@@ -25,7 +17,7 @@ class AppExtension extends AbstractExtension
         // If your filter generates SAFE HTML, you should add a third
         // parameter: ['is_safe' => ['html']]
         // Reference: https://twig.symfony.com/doc/2.x/advanced.html#automatic-escaping
-        new TwigFilter('cached_markdown', [$this, 'processMarkdown'], ['is_safe' => ['html']]),
+        new TwigFilter('cached_markdown', [AppRuntime::class, 'processMarkdown'], ['is_safe' => ['html']]),
     ];
 }
 
@@ -36,8 +28,4 @@ class AppExtension extends AbstractExtension
         ];
     }*/
 
-    public function processMarkdown($value)
-    {
-        return $this->markdown->parse($value);
-    }
 }
