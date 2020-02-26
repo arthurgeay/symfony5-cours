@@ -9,7 +9,7 @@
             <span><img class="rounded-circle" width="35" height="35" src="https://randomuser.me/api/portraits/women/48.jpg" /> Arthur Geay - Publié il y a 4 heures - {{ comments|length }} commentaires | <span class="like-counter">5</span> <a href="{{ path('article_toggle_heart', {'slug': article.slug}) }}" class="like-article"><i class="far fa-heart" style="color: red;"></i></a></span>
         </div>
         <div>
-            {{ article.content|markdown }}
+            {{ article.content|cached_markdown }}
         </div>
     </article>
 
