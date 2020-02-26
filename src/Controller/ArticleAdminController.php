@@ -19,6 +19,9 @@ class ArticleAdminController extends AbstractController
     {
         $article = new Article();
         $article->setTitle('Mon article de blog')
+                ->setAuthor('Mike Yesman')
+                ->setHeartCount(rand(5, 100))
+                ->setImageFilename('https://cdn.welcometothejungle.co/uploads/organization/logo/1980/150892/sensiolabs.png')
                 ->setSlug('mon-article-de-blog-'.rand(100, 999))
                 ->setContent('Spicy **jalapeno bacon** ipsum dolor amet veniam shank in dolore. Ham hock nisi landjaeger cow,
                 lorem proident [beef ribs](https://baconipsum.com/) aute enim veniam ut cillum pork chuck picanha. Dolore reprehenderit
