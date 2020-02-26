@@ -51,11 +51,6 @@ class Article
      */
     private $imageFilename;
 
-    public function getImagePath()
-    {
-        return 'images/'.$this->getImageFilename();
-    }
-
     public function getId(): ?int
     {
         return $this->id;
@@ -142,6 +137,17 @@ class Article
     {
         $this->imageFilename = $imageFilename;
 
+        return $this;
+    }
+
+    public function getImagePath()
+    {
+        return 'images/'.$this->getImageFilename();
+    }
+
+    public function incrementHeartCount(): self
+    {
+        $this->heartCount = $this->heartCount + 1;
         return $this;
     }
 }
