@@ -5,6 +5,7 @@
         "php": "^7.2.5",
         "ext-ctype": "*",
         "ext-iconv": "*",
+        "antishov/doctrine-extensions-bundle": "^1.4",
         "guzzlehttp/psr7": "^1.6",
         "http-interop/http-factory-guzzle": "^1.0",
         "knplabs/knp-markdown-bundle": "^1.8",
@@ -38,6 +39,7 @@
     "require-dev": {
         "doctrine/doctrine-fixtures-bundle": "^3.3",
         "easycorp/easy-log-handler": "^1.0.7",
+        "fzaninotto/faker": "^1.9",
         "symfony/debug-bundle": "*",
         "symfony/maker-bundle": "^1.14",
         "symfony/monolog-bundle": "^3.0",
