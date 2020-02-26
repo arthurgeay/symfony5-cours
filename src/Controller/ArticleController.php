@@ -35,7 +35,6 @@ class ArticleController extends AbstractController
             $slack->sendMessage('Jéjé', 'Bonjour la famille');
         }
 
-
         $comments = ["C'est incroyable", "Super article", "Nul"];
 
         return $this->render('article/show.html.twig', [
