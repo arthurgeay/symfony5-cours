@@ -6,6 +6,7 @@ namespace App\Controller;
 
 use App\Entity\Article;
 use App\Repository\ArticleRepository;
+use App\Repository\CommentRepository;
 use App\Service\MarkdownHelper;
 use App\Service\SlackClient;
 use Doctrine\ORM\EntityManagerInterface;
@@ -35,11 +36,8 @@ class ArticleController extends AbstractController
             $slack->sendMessage('Jéjé', 'Bonjour la famille');
         }
 
-        $comments = ["C'est incroyable", "Super article", "Nul"];
-
         return $this->render('article/show.html.twig', [
-            'article' => $article,
-            'comments' => $comments]);
+            'article' => $article]);
     }
 
     /**

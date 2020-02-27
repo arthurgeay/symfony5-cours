@@ -34,3 +34,6 @@ article {
     padding: 20px;
 }
 
+#comments .card {
+    margin-bottom: 15px;
+}
