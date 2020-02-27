@@ -16,7 +16,7 @@
                 <div class="card-body">
                     <h5 class="card-title">{{ article.title }}</h5>
                     <p>Publié par {{ article.author }} - {{ article.publishedAt ? article.publishedAt|ago }}</p>
-                    <p>{{ article.comments|length }} commentaires</p>
+                    <p>{{ article.nonDeletedComments|length }} commentaires</p>
                     <a href="{{ path('news', {'slug': article.slug }) }}" class="btn btn-primary">Lire l'article</a>
                 </div>
             </div>

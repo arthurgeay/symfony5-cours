@@ -14,11 +14,14 @@
     </article>
 
     <section id="comments">
-        <h2>{{ article.comments|length }} commentaires </h2>
+        <h2>{{ article.nonDeletedComments|length }} commentaires </h2>
         <hr>
-        {% for comment in article.comments %}
+        {% for comment in article.nonDeletedComments %}
         <div class="card">
             <div class="card-header">
+                {% if comment.isDeleted %}
+                    <span class="fa fa-close"></span> supprimé
+                {% endif %}
                 {{ comment.authorName }} <br />
                 {{ comment.createdAt|ago }}
             </div>
