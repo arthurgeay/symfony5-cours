@@ -10,6 +10,7 @@
         "http-interop/http-factory-guzzle": "^1.0",
         "knplabs/knp-markdown-bundle": "^1.8",
         "knplabs/knp-time-bundle": "^1.11",
+        "nexylan/slack-bundle": "^2.2",
         "sensio/framework-extra-bundle": "^5.5",
         "sensiolabs/security-checker": "^6.0",
         "symfony/apache-pack": "^1.0",
@@ -34,7 +35,8 @@
         "symfony/twig-pack": "^1.0",
         "symfony/validator": "5.0.*",
         "symfony/web-link": "5.0.*",
-        "symfony/yaml": "5.0.*"
+        "symfony/yaml": "5.0.*",
+        "twig/string-extra": "^3.0"
     },
     "require-dev": {
         "doctrine/doctrine-fixtures-bundle": "^3.3",
