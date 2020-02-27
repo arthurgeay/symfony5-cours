@@ -3,7 +3,7 @@
 {% block title %}Gestion des commentaires - {{ parent() }}{% endblock %}
 
 {% block body %}
-    <h1 class="text-center">Gestion des commentaires</h1>
+    <h1 class="text-center">Gestion des commentaires ({{ pagination.getTotalItemCount }}) </h1>
 
     <form>
         <div class="input-group mb-3">
@@ -26,7 +26,7 @@
         </tr>
         </thead>
         <tbody>
-            {% for comment in comments %}
+            {% for comment in pagination %}
                 <tr>
                     <td><a href="{{ path('news', {'slug': comment.article.slug }) }}">{{ comment.article.title }}</a></td>
                     <td>{{ comment.authorName }}</td>
@@ -40,4 +40,7 @@
             {% endfor  %}
         </tbody>
     </table>
+    <div class="navigation">
+        {{ knp_pagination_render(pagination) }}
+    </div>
 {% endblock %}

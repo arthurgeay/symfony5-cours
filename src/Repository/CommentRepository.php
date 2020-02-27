@@ -21,9 +21,8 @@ class CommentRepository extends ServiceEntityRepository
 
     /**
      * @param string|null $term
-     * @return Comment[]
      */
-    public function findAllWithSearch(?string $term)
+    public function getWithSearchQueryBuilder(?string $term)
     {
         $qb = $this->createQueryBuilder('c')
             ->innerJoin('c.article', 'a')
@@ -35,10 +34,9 @@ class CommentRepository extends ServiceEntityRepository
         }
 
         return $qb
-                ->orderBy('c.createdAt', 'DESC')
-                ->getQuery()
-                ->getResult();
+                ->orderBy('c.createdAt', 'DESC');
     }
+
 
     // /**
     //  * @return Comment[] Returns an array of Comment objects
