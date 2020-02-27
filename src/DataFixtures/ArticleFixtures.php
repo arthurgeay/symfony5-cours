@@ -49,18 +49,6 @@ EOF
                 ->setHeartCount($this->faker->numberBetween(5, 100))
                 ->setImageFilename('tricycle-extended.jpeg')
             ;
-
-            $comment1 = new Comment();
-            $comment1->setAuthorName('Mike Ferengi');
-            $comment1->setContent('Salut, c\'est vraiment un super article! Continue comme ça :)');
-            $comment1->setArticle($article);
-            $manager->persist($comment1);
-
-            $comment2 = new Comment();
-            $comment2->setAuthorName('Arthur Geay');
-            $comment2->setContent('Super travail');
-            $comment2->setArticle($article);
-            $manager->persist($comment2);
         });
         $manager->flush();
     }

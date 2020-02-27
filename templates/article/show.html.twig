@@ -19,7 +19,8 @@
         {% for comment in article.comments %}
         <div class="card">
             <div class="card-header">
-                {{ comment.authorName }}
+                {{ comment.authorName }} <br />
+                {{ comment.createdAt|ago }}
             </div>
             <div class="card-body">
                 <p class="card-text">{{ comment.content }}</p>
