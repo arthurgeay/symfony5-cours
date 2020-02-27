@@ -14,7 +14,7 @@ body {
     margin-top: 25px;
 }
 
-.header-article span:nth-child(1) {
+.header-article info {
     display: block;
     height: 40px;
     margin-bottom: 20px;
@@ -36,4 +36,12 @@ article {
 
 #comments .card {
     margin-bottom: 15px;
+}
+
+.tags span {
+    margin-bottom: 15px;
+}
+
+.tags-home {
+    padding-left: 20px;
 }

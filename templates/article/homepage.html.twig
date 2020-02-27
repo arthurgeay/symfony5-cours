@@ -12,6 +12,11 @@
         <div class="col-md-4">
             <div class="card">
                 <img src="{{ asset(article.imagePath) }}" class="card-img-top" alt="...">
+                <div class="tags-home">
+                    {% for tag in article.tags %}
+                        <span class="badge badge-info">{{ tag.name }}</span>
+                    {% endfor %}
+                </div>
                 <hr>
                 <div class="card-body">
                     <h5 class="card-title">{{ article.title }}</h5>
