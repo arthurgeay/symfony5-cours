@@ -27,6 +27,5 @@ class SecurityController extends AbstractController
      */
     public function logout()
     {
-        throw new \Exception("yes");
     }
 }
