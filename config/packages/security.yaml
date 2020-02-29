@@ -20,6 +20,10 @@ security:
             remember_me:
                 secret: '%kernel.secret%'
 
+    encoders:
+        App\Entity\User:
+            algorithm: auto
+
             # activate different ways to authenticate
             # https://symfony.com/doc/current/security.html#firewalls-authentication
 
