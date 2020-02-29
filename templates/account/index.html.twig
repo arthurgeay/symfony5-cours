@@ -10,7 +10,9 @@
                 <div class="col-md-12">
                     <div>
                         <h3>Welcome back, {{ app.user.firstName }}</h3>
-                        <h4><i class="fab fa-twitter"></i> ?????</h4>
+                        {% if app.user.twitterUsername %}
+                            <h4><i class="fab fa-twitter"></i> {{ app.user.twitterUsername }}</h4>
+                        {% endif %}
                         <a class="btn btn-labeled btn-info" href="#">
                             <span class="btn-label"><i class="fa fa-pencil"></i></span>Update
                         </a>

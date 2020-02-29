@@ -10,7 +10,7 @@ use Symfony\Component\Routing\Annotation\Route;
 /**
  * Class AccountController
  * @package App\Controller
- * @IsGranted("ROLE_ADMIN")
+ * @IsGranted("ROLE_USER")
  */
 class AccountController extends AbstractController
 {
