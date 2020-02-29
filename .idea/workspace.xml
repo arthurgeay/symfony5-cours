@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="3dec1544-8587-44d5-833c-a838f969e07f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Security/LoginFormAuthenticator.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Security/LoginFormAuthenticator.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/security.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/security/login.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/security/login.html.twig" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -217,7 +217,7 @@
       <workItem from="1582640813720" duration="6378000" />
       <workItem from="1582718652987" duration="15627000" />
       <workItem from="1582806691795" duration="17531000" />
-      <workItem from="1582899358665" duration="7655000" />
+      <workItem from="1582899358665" duration="8364000" />
     </task>
     <servers />
   </component>
