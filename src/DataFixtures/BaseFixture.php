@@ -8,6 +8,7 @@ use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 use Faker\Factory;
 use Faker\Generator;
+use App\Entity\User;
 
 abstract class BaseFixture extends Fixture
 {
@@ -37,7 +38,13 @@ abstract class BaseFixture extends Fixture
             $factory($entity, $i);
 
             $this->manager->persist($entity);
-            $this->addReference($className . '_' . $i, $entity);
+
+            if($className == 'App\Entity\User' && in_array('ROLE_ADMIN', $entity->getRoles())) {
+                $this->addReference($className.'_ADMIN'.$i, $entity);
+            } else {
+                $this->addReference($className . '_' . $i, $entity);
+            }
+
         }
     }
 
