@@ -5,6 +5,7 @@ namespace App\DataFixtures;
 use App\Entity\Article;
 use App\Entity\Comment;
 use App\Entity\Tag;
+use App\Entity\User;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Persistence\ObjectManager;
 
@@ -47,7 +48,13 @@ EOF
             if ($this->faker->boolean(70)) {
                 $article->setPublishedAt($this->faker->dateTimeBetween('-100 days', '-1 days'));
             }
-            $article->setAuthor($this->faker->randomElement(self::$articleAuthors))
+
+            $userResult = $this->getRandomReferences(User::class, $this->faker->numberBetween(1, 5));
+            $user = null;
+            foreach($userResult as $result) {
+                $user = $result;
+            }
+            $article->setAuthor($user)
                 ->setHeartCount($this->faker->numberBetween(5, 100))
                 ->setImageFilename('tricycle-extended.jpeg')
             ;
@@ -65,7 +72,8 @@ EOF
     {
         // TODO: Implement getDependencies() method.
         return [
-            TagFixture::class
+            TagFixture::class,
+            UserFixture::class
         ];
     }
 
