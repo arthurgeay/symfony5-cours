@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Inscription{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/login.css') }}" />
+{% endblock %}
+
+{% block body %}
+    <h1 class="text-center">Inscription</h1>
+
+    {# todo - replace with a Symfony form #}
+    <form class="form-signin" method="post">
+        <label for="inputEmail" class="sr-only">Email address</label>
+        <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+        <label for="inputPassword" class="sr-only">Password</label>
+        <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
+        <div class="checkbox mb-3">
+            <label>
+                <input type="checkbox" name="_remember_me"> J'accepte les conditions d'utilisation
+            </label>
+        </div>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">
+            S'inscrire
+        </button>
+    </form>
+{% endblock %}
