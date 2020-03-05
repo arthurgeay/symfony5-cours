@@ -66,8 +66,6 @@ class ArticleAdminController extends AbstractController
      */
     public function edit(Article $article)
     {
-
-        $this->denyAccessUnlessGranted('MANAGE', $article);
         dd($article);
     }
 }
