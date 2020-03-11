@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+{% block title %} {{ parent() }} Créer un nouvel article {% endblock %}
+
+
+{% block body %}
+
+    <h1 class="text-center">Créer un nouvel article</h1>
+    <hr>
+
+    {{ form_start(articleForm) }}
+        {{ form_widget(articleForm) }}
+        <input type="submit" class="btn btn-primary" value="Créer">
+    {{ form_end(articleForm) }}
+
+{% endblock %}
