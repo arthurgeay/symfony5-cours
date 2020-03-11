@@ -39,7 +39,9 @@ class ArticleAdminController extends AbstractController
             $em->persist($article);
             $em->flush();
 
-            return $this->redirectToRoute('home');
+            $this->addFlash('success', 'Article créé avec succès');
+
+            return $this->redirectToRoute('list_article');
         }
 
         return $this->render('article_admin/new.html.twig', [
@@ -58,7 +60,7 @@ class ArticleAdminController extends AbstractController
     }
 
     /**
-     * @Route("/admin/article")
+     * @Route("/admin/article", name="list_article")
      */
     public function list(ArticleRepository $articleRepository)
     {
