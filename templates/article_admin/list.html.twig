@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+{% block title %} {{ parent() }} - Liste des articles {% endblock %}
+
+
+{% block body %}
+
+    <h1 class="text-center">Liste des articles</h1>
+    <hr>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">Titre</th>
+            <th scope="col">Auteur</th>
+            <th scope="col">Publié</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for article in articles %}
+        <tr>
+            <td>{{ article.title }}</td>
+            <td>{{ article.author }}</td>
+            <td>{{ article.isPublished ? 'Publié' : 'Non publié' }}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}
