@@ -10,6 +10,8 @@ use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 
 use Gedmo\Timestampable\Traits\TimestampableEntity;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Validator\Context\ExecutionContextInterface;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ArticleRepository")
@@ -27,6 +29,7 @@ class Article
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Le titre ne doit pas être vide")
      */
     private $title;
 
@@ -249,5 +252,19 @@ class Article
     public function isPublished()
     {
         return $this->publishedAt != null;
+    }
+
+    /**
+     * @param ExecutionContextInterface $context
+     * @param $payload
+     * @Assert\Callback()
+     */
+    public function validate(ExecutionContextInterface $context, $payload)
+    {
+        if(stripos($this->getTitle(), 'the borg') !== false) {
+            $context->buildViolation('Erreur : the borg')
+                    ->atPath('title')
+                    ->addViolation();
+        }
     }
 }
