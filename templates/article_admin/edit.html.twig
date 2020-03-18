@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+{% block title %} {{ parent() }} Créer un nouvel article {% endblock %}
+
+
+{% block body %}
+    <h1 class="text-center">Modifier un article</h1>
+    <hr>
+
+    {% for message in app.flashes('success') %}
+        <div class="alert alert-success">
+            {{ message }}
+        </div>
+    {% endfor %}
+
+    {{ include('article_admin/_form.html.twig', {
+        button_text: 'Mettre à jour'
+    }) }}
+
+{% endblock %}

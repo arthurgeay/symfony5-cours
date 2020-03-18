@@ -1,0 +1,15 @@
+{{ form_start(articleForm) }}
+    {{ form_row(articleForm.title, {
+        label: "Titre de l'article"
+    }) }}
+    {{ form_row(articleForm.author, {
+        label: "Auteur"
+    }) }}
+    {{ form_row(articleForm.content, {
+        label: 'Contenu'
+    }) }}
+    {{ form_row(articleForm.publishedAt, {
+        label: 'Date de publication'
+    }) }}
+    <input type="submit" class="btn btn-primary" value="{{ button_text }}">
+{{ form_end(articleForm) }}
