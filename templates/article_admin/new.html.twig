@@ -8,7 +8,10 @@
     <hr>
 
     {{ form_start(articleForm, {'attr': {'novalidate': 'novalidate'}}) }}
-        {{ form_widget(articleForm) }}
+        {{ form_row(articleForm.title) }}
+        {{ form_row(articleForm.author) }}
+        {{ form_row(articleForm.content) }}
+        {{ form_row(articleForm.publishedAt) }}
         <input type="submit" class="btn btn-primary" value="Créer">
     {{ form_end(articleForm) }}
 
