@@ -7,6 +7,8 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints\Length;
+use Symfony\Component\Validator\Constraints\NotBlank;
 
 class UserRegistrationFormType extends AbstractType
 {
@@ -16,7 +18,16 @@ class UserRegistrationFormType extends AbstractType
             ->add('email')
             ->add('plainPassword', PasswordType::class, [
                 'mapped' => false,
-                'label' => 'Mot de passe'
+                'label' => 'Mot de passe',
+                'constraints' => [
+                    new NotBlank([
+                        'message' => 'Renseignez un mot de passe'
+                    ]),
+                    new Length([
+                        'min' => 5,
+                        'minMessage' => 'Votre mot de passe est trop court. Le mot de passe doit avoir au moins 5 caractères'
+                    ])
+                ]
             ])
         ;
     }
