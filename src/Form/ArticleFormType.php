@@ -15,6 +15,7 @@ use App\Repository\UserRepository;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -39,19 +40,11 @@ class ArticleFormType extends AbstractType
             ->add('title', TextType::class, [
                 'help' => 'Le titre de votre article'
             ])
-            ->add('content')
+            ->add('content', TextareaType::class)
             ->add('publishedAt', DateTimeType::class, [
                 'widget' => 'single_text'
             ])
-            ->add('author', EntityType::class, [
-                'class' => User::class,
-                'choice_label' => function(User $user) {
-                    return sprintf('(%d) %s', $user->getId(), $user->getEmail());
-                },
-                'placeholder' => 'Choisir un auteur',
-                'choices' => $this->userRepository->findAllEmailAlphabetical(),
-                'invalid_message' => 'La valeur n\'est pas connue !'
-            ])
+            ->add('author', UserSelectTextType::class)
             ;
     }
 
