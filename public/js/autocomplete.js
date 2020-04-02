@@ -1,11 +1,20 @@
-const data = ['Arthur', 'Antoine'];
+const input = document.querySelector('.autocomplete-input');
+const url = input.dataset.autocompleteUrl;
+
 
 new Autocomplete('#autocomplete', {
     search: input => {
-        if (input.length < 1) { return [] }
-        return data.filter(result => {
-            return result.toLowerCase()
-                .startsWith(input.toLowerCase())
-        })
-    }
-})
+        return new Promise(resolve => {
+            if (input.length < 3) {
+                return resolve([]);
+            }
+
+            fetch(url + `?query=${input}`)
+                .then(response => response.json())
+                .then(data => {
+                    resolve(data)
+                })
+        });
+    },
+    getResultValue: result => result.email
+});
