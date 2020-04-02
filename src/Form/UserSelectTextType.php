@@ -43,7 +43,10 @@ class UserSelectTextType extends AbstractType
             'invalid_message' => "Cet utilisateur n'existe pas",
             'finder_callback' => function(UserRepository $userRepository, string $email) {
                 return $userRepository->findOneBy(['email' => $email]);
-            }
+            },
+            'attr' => [
+                'class' => 'autocomplete-input'
+            ]
         ]);
     }
 }

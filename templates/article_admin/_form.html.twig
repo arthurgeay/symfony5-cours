@@ -2,9 +2,12 @@
     {{ form_row(articleForm.title, {
         label: "Titre de l'article"
     }) }}
-    {{ form_row(articleForm.author, {
-        label: "Auteur"
-    }) }}
+    <div id="autocomplete" class="autocomplete">
+        {{ form_row(articleForm.author, {
+            label: "Auteur"
+        }) }}
+        <ul class="autocomplete-result-list"></ul>
+    </div>
     {{ form_row(articleForm.content, {
         label: 'Contenu'
     }) }}
