@@ -16,5 +16,6 @@ new Autocomplete('#autocomplete', {
                 })
         });
     },
-    getResultValue: result => result.email
+    getResultValue: result => result.email,
+    debounceTime: 500
 });
