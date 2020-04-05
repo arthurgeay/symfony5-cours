@@ -40,7 +40,9 @@ class ArticleFormType extends AbstractType
             ->add('title', TextType::class, [
                 'help' => 'Le titre de votre article'
             ])
-            ->add('content', TextareaType::class)
+            ->add('content', TextareaType::class, [
+                'rows' => 15
+            ])
             ->add('publishedAt', DateTimeType::class, [
                 'widget' => 'single_text'
             ])
