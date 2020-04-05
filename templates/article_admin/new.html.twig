@@ -1,6 +1,10 @@
 {% extends 'base.html.twig' %}
 {% block title %} {{ parent() }} Créer un nouvel article {% endblock %}
 
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="https://unpkg.com/@trevoreyre/autocomplete-js/dist/style.css" rel="stylesheet" />
+{% endblock %}
 
 {% block body %}
 
@@ -11,4 +15,10 @@
         button_text: 'Créer'
     }) }}
 
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="https://unpkg.com/@trevoreyre/autocomplete-js"></script>
+    <script src="{{ asset('js/autocomplete.js') }}"></script>
 {% endblock %}
