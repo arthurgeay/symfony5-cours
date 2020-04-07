@@ -11,8 +11,12 @@
     {{ form_row(articleForm.content, {
         label: 'Contenu'
     }) }}
-    {{ form_row(articleForm.publishedAt, {
-        label: 'Date de publication'
-    }) }}
+
+    {% if articleForm.publishedAt is defined %}
+        {{ form_row(articleForm.publishedAt, {
+            label: 'Date de publication'
+        }) }}
+    {% endif %}
+
     <input type="submit" class="btn btn-primary" value="{{ button_text }}">
 {{ form_end(articleForm) }}

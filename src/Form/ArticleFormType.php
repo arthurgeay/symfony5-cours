@@ -36,6 +36,15 @@ class ArticleFormType extends AbstractType
 
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+        $article = $options['data'] ?? null;
+        $isEdit = $article && $article->getId();
+
+        if($options['include_published_at']) {
+            $builder->add('publishedAt', DateTimeType::class, [
+                'widget' => 'single_text'
+            ]);
+        }
+
         $builder
             ->add('title', TextType::class, [
                 'help' => 'Le titre de votre article'
@@ -43,17 +52,17 @@ class ArticleFormType extends AbstractType
             ->add('content', TextareaType::class, [
                 'rows' => 15
             ])
-            ->add('publishedAt', DateTimeType::class, [
-                'widget' => 'single_text'
+            ->add('author', UserSelectTextType::class, [
+                'disabled' => $isEdit
             ])
-            ->add('author', UserSelectTextType::class)
             ;
     }
 
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => Article::class
+            'data_class' => Article::class,
+            'include_published_at' => false
         ]);
     }
 }
