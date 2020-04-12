@@ -13,9 +13,11 @@
     label: 'Localisation'
     }) }}
 
-    {{ form_row(articleForm.specificLocationName, {
-        label: 'Spécifier la localisation'
-    }) }}
+    {% if articleForm.specificLocationName is defined %}
+        {{ form_row(articleForm.specificLocationName, {
+            label: 'Spécifier la localisation'
+        }) }}
+    {% endif %}
 
     {{ form_row(articleForm.content, {
         label: 'Contenu'

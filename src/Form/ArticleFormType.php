@@ -40,9 +40,19 @@ class ArticleFormType extends AbstractType
         $article = $options['data'] ?? null;
         $isEdit = $article && $article->getId();
 
+        $location = $article ? $article->getLocation() : null;
+
         if($options['include_published_at']) {
             $builder->add('publishedAt', DateTimeType::class, [
                 'widget' => 'single_text'
+            ]);
+        }
+
+        if($location) {
+            $builder->add('specificLocationName', ChoiceType::class, [
+                'placeholder' => 'Where exactly ?',
+                'choices' => $this->getLocationNameChoice($location),
+                'required' => false
             ]);
         }
 
@@ -64,13 +74,6 @@ class ArticleFormType extends AbstractType
                 ],
                 'required' => false
             ])
-            ->add('specificLocationName', ChoiceType::class, [
-                'placeholder' => 'Where exactly ?',
-                'choices' => [
-                    'TODO' => 'TODO'
-                ],
-                'required' => false
-            ])
             ;
     }
 
@@ -80,5 +83,36 @@ class ArticleFormType extends AbstractType
             'data_class' => Article::class,
             'include_published_at' => false
         ]);
+    }
+
+    private function getLocationNameChoice(string $location)
+    {
+        $planets = [
+            'Mercury',
+            'Venus',
+            'Earth',
+            'Mars',
+            'Jupiter',
+            'Saturn',
+            'Uranus',
+            'Neptune',
+        ];
+        $stars = [
+            'Polaris',
+            'Sirius',
+            'Alpha Centauari A',
+            'Alpha Centauari B',
+            'Betelgeuse',
+            'Rigel',
+            'Other'
+        ];
+
+        $locationNameChoices = [
+            'solar_system' => array_combine($planets, $planets),
+            'star' => array_combine($stars, $stars),
+            'interstellar_space' => null,
+        ];
+
+        return $locationNameChoices[$location];
     }
 }
