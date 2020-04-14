@@ -10,14 +10,19 @@
     </div>
 
     {{ form_row(articleForm.location, {
-    label: 'Localisation'
+    label: 'Localisation',
+        attr: {
+            'data-specific-location-url': path('admin_article_location_select'),
+            'class': 'js-article-form-location'}
     }) }}
 
-    {% if articleForm.specificLocationName is defined %}
-        {{ form_row(articleForm.specificLocationName, {
-            label: 'Spécifier la localisation'
-        }) }}
-    {% endif %}
+    <div class="js-specific-location-target">
+        {% if articleForm.specificLocationName is defined %}
+            {{ form_row(articleForm.specificLocationName, {
+                label: 'Spécifier la localisation'
+            }) }}
+        {% endif %}
+    </div>
 
     {{ form_row(articleForm.content, {
         label: 'Contenu'
