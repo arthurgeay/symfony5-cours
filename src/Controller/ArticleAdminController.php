@@ -82,10 +82,15 @@ class ArticleAdminController extends AbstractController
     }
 
     /**
+     * @IsGranted("ROLE_USER")
      * @Route("/admin/article/location-select", name="admin_article_location_select")
      */
     public function getSpecificLocationSelect(Request $request)
     {
+        if(!$this->isGranted('ROLE_ADMIN_ARTICLE') && $this->getUser()->getArticles()->isEmpty()) {
+            throw $this->createAccessDeniedException();
+        }
+        
         $article = new Article();
         $article->setLocation($request->query->get('location'));
 
