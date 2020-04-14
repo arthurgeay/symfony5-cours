@@ -298,6 +298,10 @@ class Article
 
     public function setSpecificLocationName(?string $specificLocationName): self
     {
+        if (!$this->location || $this->location === 'interstellar_space') {
+            $this->setSpecificLocationName(null);
+        }
+
         $this->specificLocationName = $specificLocationName;
 
         return $this;
