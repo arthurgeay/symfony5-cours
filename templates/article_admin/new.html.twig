@@ -20,6 +20,6 @@
 {% block javascripts %}
     {{ parent() }}
     <script src="https://unpkg.com/@trevoreyre/autocomplete-js"></script>
-    <script src="{{ asset('js/autocomplete.js') }}"></script>
-    <script src="{{ asset('js/admin_article_form.js') }}"></script>
+    {{ encore_entry_script_tags('autocomplete') }}
+    {{ encore_entry_script_tags('admin_article_form') }}
 {% endblock %}

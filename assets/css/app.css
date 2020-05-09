@@ -1,3 +1,49 @@
+@import "~bootstrap";
+
 body {
-    background-color: lightgray;
+    background-color: rgb(237, 234, 237);
+}
+
+.container {
+    margin-top: 15px;
+}
+
+.navbar {
+    height: 80px;
+}
+
+.header-article h1 {
+    margin-top: 25px;
+}
+
+.header-article info {
+    display: block;
+    height: 40px;
+    margin-bottom: 20px;
+}
+
+article {
+    background: white;
+    padding: 20px;
+    border-radius: 2%;
+}
+
+#comments {
+    margin-top: 40px;
+}
+
+.card-img-top {
+    padding: 20px;
+}
+
+#comments .card {
+    margin-bottom: 15px;
+}
+
+.tags span {
+    margin-bottom: 15px;
+}
+
+.tags-home {
+    padding-left: 20px;
 }

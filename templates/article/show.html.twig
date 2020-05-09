@@ -43,5 +43,5 @@
 
 {% block javascripts %}
     {{ parent() }}
-    <script src="{{ asset('js/news_show.js') }}"></script>
+   {{ encore_entry_script_tags('news_show') }}
 {% endblock %}

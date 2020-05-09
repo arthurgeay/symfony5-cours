@@ -9,11 +9,11 @@ locationSelect.addEventListener('change', (e) => {
         .then(data => data.text())
         .then(result => {
             if(!result) {
-              const select = specificLocationTarget.children[0].querySelector('select');
-              specificLocationTarget.children[0].removeChild(select);
-              specificLocationTarget.classList.add('d-none');
+                const select = specificLocationTarget.children[0].querySelector('select');
+                specificLocationTarget.children[0].removeChild(select);
+                specificLocationTarget.classList.add('d-none');
 
-              return;
+                return;
             }
 
             specificLocationTarget.innerHTML = result;
