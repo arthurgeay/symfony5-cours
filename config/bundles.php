@@ -19,4 +19,5 @@ return [
     Http\HttplugBundle\HttplugBundle::class => ['all' => true],
     Nexy\SlackBundle\NexySlackBundle::class => ['all' => true],
     Knp\Bundle\PaginatorBundle\KnpPaginatorBundle::class => ['all' => true],
+    Symfony\WebpackEncoreBundle\WebpackEncoreBundle::class => ['all' => true],
 ];
